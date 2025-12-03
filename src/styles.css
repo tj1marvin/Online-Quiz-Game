@@ -1,0 +1,70 @@
+/*
+ * Global Stylesheet: src/styles.css
+ * This file is used to inject Tailwind CSS directives and set any base global styles.
+ */
+
+/* 1. Tailwind Directives */
+/* These three directives are necessary to inject Tailwind's base, components, and utilities styles. */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 2. Global Resets and Typography */
+body {
+    /* Set the default font stack and smooth scrolling */
+    font-family: 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    /* Ensure the body and html take up the full viewport height */
+    min-height: 100vh;
+}
+
+/* Ensure the root element takes full space */
+app-root {
+    display: block;
+    min-height: 100vh;
+}
+
+/* Custom Scrollbar for review section on results screen */
+.custom-scrollbar::-webkit-scrollbar {
+    width: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #9ca3af;
+    /* gray-400 */
+    border-radius: 4px;
+}
+
+/* Animations */
+@layer utilities {
+    .animate-fade-in {
+        animation: fadeIn 0.5s ease-out forwards;
+    }
+
+    .animate-slide-up {
+        animation: slideUp 0.5s ease-out forwards;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
